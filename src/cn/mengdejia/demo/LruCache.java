@@ -14,11 +14,20 @@ import java.util.Map;
  * 访问节点时，如果存在，则移动到头部。否则返回空。
  */
 public class LruCache<K, V> {
+    /**
+     * 容量
+     */
     private int capacity;
+    /**
+     * 当前节点数 默认值0
+     */
     private int count;
+    /**
+     * 缓存的节点内容。使用map可以方便k-v操作。(获取的也是一整个k-v)
+     */
+    private Map<K, Node<K, V>> nodeMap;
     private Node<K, V> head;
     private Node<K, V> tail;
-    private Map<K, Node<K, V>> nodeMap;
 
     public static void main(String[] args) {
         LruCache cache = new LruCache(3);
